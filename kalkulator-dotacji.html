@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nowoczesna Strona</title>
+    <link rel="stylesheet" href="stylecalc.css">
+</head>
+<body>
+    <!-- Nawigacja -->
+    <header>
+        <nav>
+            <a href="strona-główna.html" class="logo">
+                <img class="logo1" src="Grafika/Logo bez tła.png" alt="">
+                <img class="logo2" src="Grafika/Napis bez tła.png" alt="">
+            </a>
+            <ul class="nav-links">
+                <li><a class="wrap_1" href="strona-główna.html">
+                    <p class="menu_w11">Strona główna</p>
+                    <p class="menu_w12">Strona główna</p>
+                </a></li>
+                <li><a class="wrap_2" href="kalkulator-dotacji.html">
+                    <p class="menu_w21">Kalkulator dotacji</p>
+                    <p class="menu_w22">Kalkulator dotacji</p>
+                </a></li>
+                <li><a class="wrap_3" href="kontakt.html">
+                    <p class="menu_w31">Kontakt</p>
+                    <p class="menu_w32">Kontakt</p>
+                </a></li>
+            </ul>
+            <div class="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Dodatkowa treść -->
+    <section class="form">
+        <h1>Kalkulator dotacji Czyste Powietrze<br><span class="h1less">dla Programu obowiązującego od 31.03.2025</span></h1>
+    
+        <div class="section">
+            <label class="bold" for="funding-level">Wybierz poziom dofinansowania</label>
+            <select id="funding-level">
+                <option value="0" selected disabled hidden>Wybierz...</option>
+                <option value="0.4">Podstawowy - do 40% kosztów netto</option>
+                <option value="0.7">Podwyższony - do 70% kosztów netto</option>
+                <option value="1">Najwyższy - do 100% kosztów netto</option>
+            </select>
+            <div><input type="checkbox" id="help"> <span class="greyed">Pokaż pomoc w wyborze poziomu dofinansowania</span></label>
+           
+        <div id="pomoc" class="hidden">
+            <div>
+                <label for="gospodarstwo">Rodzaj prowadzonego gospodarstwa domowego</label>
+                <select id="gospodarstwo">
+                    <option value="0" selected disabled hidden>Wybierz...</option>
+                    <option value="1">jednoosobowe</option>
+                    <option value="2">wieloosobowe</option>
+                </select>
+            </div>
+    
+            <div id="jednoosobowe-container" class="hidden">
+                <label for="jednoosobowe">Przeciętny miesięczny dochód na jednego członka gospodarstwa domowego</label>
+                <select id="jednoosobowe">
+                    <option value="0" selected disabled hidden>Wybierz...</option>
+                    <option value="1">jest mniejszy bądź równy 1 800 zł</option>
+                    <option value="2">jest mniejszy bądź równy 3 150 zł</option>
+                    <option value="3">jest wyższy niż 3 150 zł</option>
+                </select>
+            </div>
+    
+            <div id="wieloosobowe-container" class="hidden">
+                <label for="wieloosobowe">Przeciętny miesięczny dochód na jednego członka gospodarstwa domowego</label>
+                <select id="wieloosobowe">
+                    <option value="0" selected disabled hidden>Wybierz...</option>
+                    <option value="1">jest mniejszy bądź równy 1 300 zł</option>
+                    <option value="2">jest mniejszy bądź równy 2 250 zł</option>
+                    <option value="3">jest wyższy niż 2 250 zł</option>
+                </select>
+            </div>
+    
+            <div id="wskaznik-container" class="hidden">
+                <label for="wskaznik">Określona w audycie energetycznym wartości wskaźnika zapotrzebowania na energię użytkową do ogrzewania budynku lub lokalu (EU) przed modernizacją, ma wartość</label>
+                <select id="wskaznik">
+                    <option value="0" selected disabled hidden>Wybierz...</option>
+                    <option value="1">powyżej 140 kWh/(m<sup>2</sup>&middot;rok)</option>
+                    <option value="2">140 kWh/(m<sup>2</sup>&middot;rok) lub mniej</option>
+                </select>
+            </div>
+    
+            <div id="result2" class="hidden">
+                <h3 id="result-text"></h3>
+                <div id="additional-info" class="additional-info hidden"></div>
+            </div>
+        </div>
+         
+        </div>
+        </div>
+            <!-- AUDYT -->
+        <div class="section">
+            <label>
+                <input type="checkbox" id="check-audit"> 
+                <span class="bold">Uwzględnij audyt energetyczny w obliczeniach</span> <span class="greyed">(zaznacz, jeżeli audyt został wykonany)</span>
+            </label>
+            <div id="wskaznik-audyt" class="hidden">
+                <label for="wskaznik2">Określona w audycie energetycznym wartości wskaźnika zapotrzebowania na energię użytkową do ogrzewania budynku lub lokalu (EU) przed modernizacją, ma wartość</label>
+                    <select id="wskaznik2">
+                    <option value="0" selected disabled hidden>Wybierz...</option>
+                    <option value="1">poniżej 80 kWh/(m<sup>2</sup>&middot;rok)</option>
+                    <option value="2">od 80 do 140 kWh/(m<sup>2</sup>&middot;rok)</option>
+                    <option value="3">powyżej 140 kWh/(m<sup>2</sup>&middot;rok)</option>
+                </select>
+            </div>
+        </div>
+            <!-- /AUDYT -->
+
+        <div class="section">
+            <label>
+                <input type="checkbox" id="business-activity"> <span class="bold">W budynku lub lokalu prowadzona jest działalność gospodarcza</span></label>
+            
+            <div id="business-area-fields" class="hidden">
+                <div class="input-group">
+                    <label>Podaj powierzchnię całkowitą budynku lub lokalu</label>
+                    <input type="number" id="total-area" placeholder="Wpisz powierzchnię" min="0" step="0.01" class="inline-input">
+                    <span class="unit">m<sup>2</sup></span>
+                    <div id="total-area-error" class="error hidden">Podaj poprawną powierzchnię</div>
+                </div>
+                
+                <div class="input-group">
+                    <label>Podaj powierzchnię przeznaczoną na prowadzenie działalności</label>
+                    <input type="number" id="business-area" placeholder="Wpisz powierzchnię" min="0" step="0.01" class="inline-input">
+                    <span class="unit">m<sup>2</sup></span>
+                    <div id="business-area-error" class="error hidden">Podaj poprawną powierzchnię</div>
+                </div>
+                
+                <div id="business-percentage" class="hidden"></div>
+            </div>
+        </div>
+
+        <div class="section section-hidden">
+            <label>
+                <input type="checkbox" id="heat-source-change"> 
+                <span class="bold">Inwestycja obejmuje wymianę źródła ciepła</span>
+            </label>
+            
+            <div id="heat-source-fields" class="hidden">
+                <label for="heat-source-type">Wybierz nowe źródło ciepła</label>
+                <select id="heat-source-type">
+                    <option value="0"selected disabled hidden>Wybierz...</option>
+                    <option value="22250">Podłączenie do sieci ciepłowniczej wraz z przyłączem</option>
+                    <option value="31500">Pompa ciepła powietrze/woda (koszt kwalifikowany do 31.07.2025)</option>
+                    <option value="35200">Pompa ciepła powietrze/woda o podwyższonej klasie energetycznej</option>
+                    <option value="11200">Pompa ciepła powietrze/powietrze</option>
+                    <option value="45000">Gruntowa pompa ciepła o podwyższonej klasie energetycznej</option>
+                    <option value="20500">Kocioł zgazowujący drewno o podwyższonym standardzie</option>
+                    <option value="20500">Kocioł na pellet drzewny o podwyższonym standardzie</option>
+                    <option value="11200">Ogrzewanie elektryczne</option>
+                </select>
+                
+                <div id="heat-source-cost-field" class="hidden input-group">
+                    <label>Podaj koszt źródła ciepła</label>
+                    <input type="number" id="heat-source-cost" placeholder="Wpisz koszt netto" min="0" step="0.01" class="inline-input">
+                    <span class="unit">zł</span>
+                    <div id="heat-source-cost-error" class="error hidden">Podaj poprawną kwotę</div>
+                </div>
+                
+                <div id="additional-heat-source-field" class="hidden">
+                    <label>
+                        <input type="checkbox" id="additional-heat-source"> 
+                        Dodaj koszt dolnego źródła ciepła
+                    </label>
+                    
+                    <div id="additional-heat-source-cost-field" class="hidden input-group">
+                        <label></label>
+                        <input type="number" id="additional-heat-source-cost" placeholder="Wpisz koszt netto" min="0" step="0.01" class="inline-input">
+                        <span class="unit">zł</span>
+                        <div id="additional-heat-source-cost-error" class="error hidden">Podaj poprawną kwotę</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="modernization-section" class="section hidden">
+            <label>
+                <input type="checkbox" id="modernization"> 
+                <span class="bold">Modernizacja instalacji c.o. lub c.w.u.</span>
+            </label>
+            
+            <div id="modernization-cost-field" class="hidden input-group">
+                <label>Podaj koszt zadania</label>
+                <input type="number" id="modernization-cost" placeholder="Wpisz koszt netto" min="0" step="0.01" class="inline-input">
+                <span class="unit">zł</span>
+                <div id="modernization-cost-error" class="error hidden">Podaj poprawną kwotę</div>
+            </div>
+        </div>
+        
+        <div class="section termo">
+            <label>
+                <input type="checkbox" id="roof-insulation"> 
+                  <span class="bold">Ocieplenie stropów lub poddaszy</span>
+            </label>
+            
+            <div id="roof-insulation-fields" class="hidden">
+                <div class="input-group">
+                    <label>Podaj koszt zadania</label>
+                    <input type="number" id="roof-insulation-cost" placeholder="Wpisz koszt netto" min="0" step="0.01" class="inline-input">
+                    <span class="unit">zł</span>
+                    <div id="roof-insulation-cost-error" class="error hidden">Podaj poprawną kwotę</div>
+                </div>
+                
+                <div class="input-group">
+                    <label>Podaj powierzchnię</label>
+                    <input type="number" id="roof-insulation-area" placeholder="Wpisz powierzchnię" min="0" step="0.01" class="inline-input">
+                    <span class="unit">m<sup>2</sup></span>
+                    <div id="roof-insulation-area-error" class="error hidden">Podaj poprawną powierzchnię</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section termo">
+            <label>
+                <input type="checkbox" id="floor-insulation"> 
+                  <span class="bold">Ocieplenie podłóg</span>
+            </label>
+            
+            <div id="floor-insulation-fields" class="hidden">
+                <div class="input-group">
+                    <label>Podaj koszt zadania</label>
+                    <input type="number" id="floor-insulation-cost" placeholder="Wpisz koszt netto" min="0" step="0.01" class="inline-input">
+                    <span class="unit">zł</span>
+                    <div id="floor-insulation-cost-error" class="error hidden">Podaj poprawną kwotę</div>
+                </div>
+                
+                <div class="input-group">
+                    <label>Podaj powierzchnię</label>
+                    <input type="number" id="floor-insulation-area" placeholder="Wpisz powierzchnię" min="0" step="0.01" class="inline-input">
+                    <span class="unit">m<sup>2</sup></span>
+                    <div id="floor-insulation-area-error" class="error hidden">Podaj poprawną powierzchnię</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section termo">
+            <label>
+                <input type="checkbox" id="wall-insulation"> 
+                  <span class="bold">Ocieplenie ścian</span>
+            </label>
+            
+            <div id="wall-insulation-fields" class="hidden">
+                <div class="input-group">
+                    <label>Podaj koszt zadania</label>
+                    <input type="number" id="wall-insulation-cost" placeholder="Wpisz koszt netto" min="0" step="0.01" class="inline-input">
+                    <span class="unit">zł</span>
+                    <div id="wall-insulation-cost-error" class="error hidden">Podaj poprawną kwotę</div>
+                </div>
+                
+                <div class="input-group">
+                    <label>Podaj powierzchnię</label>
+                    <input type="number" id="wall-insulation-area" placeholder="Wpisz powierzchnię" min="0" step="0.01" class="inline-input">
+                    <span class="unit">m<sup>2</sup></span>
+                    <div id="wall-insulation-area-error" class="error hidden">Podaj poprawną powierzchnię</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section termo">
+            <label>
+                <input type="checkbox" id="windows"> 
+                  <span class="bold">Stolarka okienna</span>
+            </label>
+            
+            <div id="windows-fields" class="hidden">
+                <div class="input-group">
+                    <label>Podaj koszt zadania</label>
+                    <input type="number" id="windows-cost" placeholder="Wpisz koszt netto" min="0" step="0.01" class="inline-input">
+                    <span class="unit">zł</span>
+                    <div id="windows-cost-error" class="error hidden">Podaj poprawną kwotę</div>
+                </div>
+                
+                <div class="input-group">
+                    <label>Podaj powierzchnię</label>
+                    <input type="number" id="windows-area" placeholder="Wpisz powierzchnię" min="0" step="0.01" class="inline-input">
+                    <span class="unit">m<sup>2</sup></span>
+                    <div id="windows-area-error" class="error hidden">Podaj poprawną powierzchnię</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section termo">
+            <label>
+                <input type="checkbox" id="doors"> 
+                  <span class="bold">Stolarka drzwiowa</span>
+            </label>
+            
+            <div id="doors-fields" class="hidden">
+                <div class="input-group">
+                    <label>Podaj koszt zadania</label>
+                    <input type="number" id="doors-cost" placeholder="Wpisz koszt netto" min="0" step="0.01" class="inline-input">
+                    <span class="unit">zł</span>
+                    <div id="doors-cost-error" class="error hidden">Podaj poprawną kwotę</div>
+                </div>
+                
+                <div class="input-group">
+                    <label>Podaj powierzchnię</label>
+                    <input type="number" id="doors-area" placeholder="Wpisz powierzchnię" min="0" step="0.01" class="inline-input">
+                    <span class="unit">m<sup>2</sup></span>
+                    <div id="doors-area-error" class="error hidden">Podaj poprawną powierzchnię</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section termo">
+            <label>
+                <input type="checkbox" id="garage-doors"> 
+                  <span class="bold">Bramy garażowe</span>
+            </label>
+            
+            <div id="garage-doors-fields" class="hidden">
+                <div class="input-group">
+                    <label>Podaj koszt zadania</label>
+                    <input type="number" id="garage-doors-cost" placeholder="Wpisz koszt netto" min="0" step="0.01" class="inline-input">
+                    <span class="unit">zł</span>
+                    <div id="garage-doors-cost-error" class="error hidden">Podaj poprawną kwotę</div>
+                </div>
+                
+                <div class="input-group">
+                    <label>Podaj powierzchnię</label>
+                    <input type="number" id="garage-doors-area" placeholder="Wpisz powierzchnię" min="0" step="0.01" class="inline-input">
+                    <span class="unit">m<sup>2</sup></span>
+                    <div id="garage-doors-area-error" class="error hidden">Podaj poprawną powierzchnię</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section termo">
+            <label>
+                <input type="checkbox" id="ventilation"> 
+                  <span class="bold">Wentylacja mechaniczna z odzyskiem ciepła</span>
+            </label>
+            
+            <div id="ventilation-cost-field" class="hidden input-group">
+                <label>Podaj koszt zadania</label>
+                <input type="number" id="ventilation-cost" placeholder="Wpisz koszt netto" min="0" step="0.01" class="inline-input">
+                <span class="unit">zł</span>
+                <div id="ventilation-cost-error" class="error hidden">Podaj poprawną kwotę</div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <label>
+                <input type="checkbox" id="audit"> 
+                  <span class="bold">Audyt energetyczny</span>
+            </label>
+            
+            <div id="audit-cost-field" class="hidden input-group">
+                <label>Podaj koszt zadania</label>
+                <input type="number" id="audit-cost" placeholder="Wpisz koszt netto" min="0" step="0.01" class="inline-input">
+                <span class="unit">zł</span>
+                <div id="audit-cost-error" class="error hidden">Podaj poprawną kwotę</div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <label>
+                <input type="checkbox" id="energy-certificate"> 
+                  <span class="bold">Świadectwo charakterystyki energetycznej</span>
+            </label>
+            
+            <div id="energy-certificate-cost-field" class="hidden input-group">
+                <label>Podaj koszt zadania</label>
+                <input type="number" id="energy-certificate-cost" placeholder="Wpisz koszt netto" min="0" step="0.01" class="inline-input">
+                <span class="unit">zł</span>
+                <div id="energy-certificate-cost-error" class="error hidden">Podaj poprawną kwotę</div>
+            </div>
+        </div>
+        
+        
+        <div id="error-message" class="error-message hidden"></div>
+        <div id="result" class="result hidden"></div>
+        <div id="note" class="note hidden"></div>
+    
+        <div class="buttons-container">
+            <button id="calculate-btn">Oblicz dotację</button>
+            <button id="clear-btn">Wyczyść formularz</button>
+        </div>
+    </section>
+
+    <!-- Stopka -->
+    <footer>
+        <p>&copy; 2025</p>
+     </footer>
+
+    <script src="scriptcalc.js"></script>
+
+</body>
+</html>
