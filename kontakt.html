@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nowoczesna Strona</title>
+    <link rel="stylesheet" href="stylekontakt.css">
+</head>
+<body>
+    <!-- Nawigacja -->
+    <header>
+        <nav>
+            <a href="strona-główna.html" class="logo">
+                <img class="logo1" src="Grafika/Logo bez tła.png" alt="">
+                <img class="logo2" src="Grafika/Napis bez tła.png" alt="">
+            </a>
+            <ul class="nav-links">
+                <li><a class="wrap_1" href="strona-główna.html">
+                    <p class="menu_w11">Strona główna</p>
+                    <p class="menu_w12">Strona główna</p>
+                </a></li>
+                <li><a class="wrap_2" href="kalkulator-dotacji.html">
+                    <p class="menu_w21">Kalkulator dotacji</p>
+                    <p class="menu_w22">Kalkulator dotacji</p>
+                </a></li>
+                <li><a class="wrap_3" href="kontakt.html">
+                    <p class="menu_w31">Kontakt</p>
+                    <p class="menu_w32">Kontakt</p>
+                </a></li>
+            </ul>
+            <div class="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="additional-content">
+        <h2>Skontaktuj się z nami</h2>
+        <p class="h2">Czego dotyczy Twoja sprawa?</p>
+        <!-- Formularz kontaktowy -->
+        <form class="contact-form" action="send_email.php" method="POST">
+            <div class="form-group">
+                <label for="name">Podaj swój e-mail</label>
+                <input type="email" id="name" placeholder="Wpisz adres e-mail do kontaktu" name="name" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="object">Występuję jako</label>
+                <select id="object" name="object" class="form-control form-group-pointer" required>
+                    <option value="0" selected disabled>Wybierz...</option>
+                    <option value="1">Wnioskodawca</option>
+                    <option value="2">Pełnomocnik Wnioskodawcy</option>
+                    <option value="3">Wykonawca</option>
+                    <option value="4">Audytor Energetyczny</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="subject">Na jakim etapie jest sprawa?</label>
+                <select id="subject" name="subject" class="form-control form-group-pointer" required>
+                    <option value="00" selected disabled >Wybierz...</option>
+                    <option value="01">Przed złożeniem wniosku o dofinansowanie</option>
+                    <option value="01">Złożono wniosek o dofinansowanie</option>
+                    <option value="02">Zawarto umowę dotacji</option>
+                    <option value="03">Złożono dyspozycję wypłaty zaliczki</option>
+                    <option value="03">Złożono wniosek o płatność</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="message">Opisz swoją sprawę</label>
+                <textarea id="message" name="message" class="form-control" rows="6" placeholder="Opis pozwoli na szybsze znaleźnienie rozwiązania - a wiemy, że zależy Ci na czasie" maxlength="1000" required></textarea>
+                <small id="char-count">0 z 1000</small>
+            </div>
+            <button type="submit" class="submit-btn">Wyślij</button>
+        </form>
+    </section>
+
+    <!-- Stopka -->
+    <footer>
+        <p>&copy; 2025</p>
+    </footer>
+
+    <script src="scriptkontakt.js"></script>
+
+</body>
+</html>
